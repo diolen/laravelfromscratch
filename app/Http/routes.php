@@ -24,13 +24,19 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-
-Route::bind('song', function($slug) {
+// Start Songs
+$router->bind('songs', function($slug) {
     //return App\Song::whereSlug($slug)->first();
     return App\Song::where('slug', $slug)->first();
 });
 
-get('songs', 'SongsController@index');
-get('songs/{song}', 'SongsController@show');
-get('songs/{song}/edit', 'SongsController@edit');
-patch('songs/{song}', 'SongsController@update');
+//get('songs', 'SongsController@index');
+//get('songs/{song}', 'SongsController@show');
+//get('songs/{song}/edit', 'SongsController@edit');
+//patch('songs/{song}', 'SongsController@update');
+
+$router->resource('songs', 'SongsController', [
+    'only' => ['index', 'show', 'edit', 'update']
+    //'except' => ['create']
+]); 
+// End Songs
