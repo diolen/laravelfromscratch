@@ -1,4 +1,4 @@
-@extends('app')
+@extends('songs')
 
 @section('content')
 <div class="container">
@@ -9,6 +9,12 @@
 
 				<div class="panel-body">
 					{{ $song->title }}
+                    
+                    @if($song->lyrics)
+                        <article>
+                            {!! nl2br($song->lyrics) !!}
+                        </article>
+                    @endif
 				</div>
 			</div>
 		</div>
