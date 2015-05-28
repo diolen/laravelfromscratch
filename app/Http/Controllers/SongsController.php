@@ -46,6 +46,12 @@ class SongsController extends Controller {
         return view('songs.show', compact('song'));
     }
     
+    /**
+     * Show form to update a song
+     * 
+     * @param Song $song
+     * @return type
+     */
     public function edit(Song $song)
     {
         //$song = Song::whereSlug($slug)->first();
@@ -66,4 +72,20 @@ class SongsController extends Controller {
         return redirect('songs');
     }
     
+    /**
+     * Show a form to create a new song
+     * 
+     * @return type
+     */
+    public function create()
+    {
+        return view('songs.create');
+    }
+    
+    public function store(Request $reques, Song $song)
+    {
+        $song->create($reques->all());
+        
+        return redirect()->route('songs_path');
+    }
 }
