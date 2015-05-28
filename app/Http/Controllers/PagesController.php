@@ -10,7 +10,12 @@ class PagesController extends Controller {
     
     public function index()
     {
-        return view('pages.home');
+        $lessons = ['First lesson', 'Second lesson', 'Third lesson'];
+        
+        //return view('pages.home', compact('lessons', 'name'));
+        //return view('pages.home')->with('lessons', $lessons);
+        //return view('pages.home')->withName($name);
+        return view('pages.home')->withLessons($lessons);
     }
     
     public function about()

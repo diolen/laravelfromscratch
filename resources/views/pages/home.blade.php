@@ -8,7 +8,9 @@
 				<div class="panel-heading">Home</div>
 
 				<div class="panel-body">
-					Home page
+					@foreach($lessons as $lesson)
+                    <li>{{ $lesson }}</li>
+                    @endforeach
 				</div>
 			</div>
 		</div>
