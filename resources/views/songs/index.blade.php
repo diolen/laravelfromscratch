@@ -9,7 +9,10 @@
 
 				<div class="panel-body">
 					@foreach($songs as $song)
-                    <li><a href="/songs/{{ $song->slug }}">{{ $song->title }}</li>
+                        <li>
+                            {!! link_to_route('song_path', $song->title, [$song->slug]) !!}
+<!--                            <a href="/songs/{{ $song->slug }}">{{ $song->title }}</a>-->
+                        </li>
                     @endforeach
 				</div>
 			</div>

@@ -35,8 +35,20 @@ $router->bind('songs', function($slug) {
 //get('songs/{song}/edit', 'SongsController@edit');
 //patch('songs/{song}', 'SongsController@update');
 
+//$router->resource('songs', 'SongsController', [
+//    'only' => ['index', 'show', 'edit', 'update']
+//    //'except' => ['create']
+//]); 
+
+//get('songs', ['as' => 'songs_path', 'uses' => 'SongsController@index']);
+//get('songs/{song}', ['as' => 'song_path', 'uses' => 'SongsController@show']);
+
 $router->resource('songs', 'SongsController', [
-    'only' => ['index', 'show', 'edit', 'update']
-    //'except' => ['create']
+    'names' => [
+        'index' => 'songs_path',
+        'show' => 'song_path',
+    ],
+//    'only' => ['index', 'show']
 ]); 
+
 // End Songs
