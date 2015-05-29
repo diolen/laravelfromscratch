@@ -16,8 +16,7 @@
                         </article>
                     @endif
                     
-                    {!! link_to_route('songs_path', 'Go back home') !!}
-                    
+                    {!! link_to_route('songs.index', 'Go back home') !!}
 				</div>
 			</div>
 		</div>
