@@ -13,6 +13,8 @@
                     @include('songs.form')
                     
                     {!! Form::close() !!}
+                    
+                    {!! delete_song(['songs.destroy', $song->slug]) !!}
 				</div>
 			</div>
 		</div>
